@@ -6,17 +6,16 @@ public class Popup : MonoBehaviour {
 
     public GameObject buttonBox;
 
+    public bool sw = false;
+
     private void OnValidate()
     {
-        buttonBox.SetActive(false);
+        buttonBox.SetActive(sw);
     }
 
     private void OnMouseDown()
     {
-        if(buttonBox.active)
-            buttonBox.SetActive(false);
-        else
-            buttonBox.SetActive(true);
-
+        sw = !sw;
+        buttonBox.SetActive(sw);
     }
 }
