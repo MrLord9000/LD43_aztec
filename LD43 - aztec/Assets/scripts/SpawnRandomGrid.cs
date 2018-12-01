@@ -7,7 +7,7 @@ public class SpawnRandomGrid : MonoBehaviour
 
     public Vector2Int gridSize;
     public Vector2Int maxRangeSpawn;
-
+    public float vari = .2f;
     public GameObject prefabToSpawn;
 
     private int mapSize;
@@ -55,6 +55,8 @@ public class SpawnRandomGrid : MonoBehaviour
                 buildingNumber++;
                 buildingOrbit[maxExpansion - 1]++;
             }
+
+            spawnPlace = new Vector2(posX + Random.Range(-vari, vari), posY + Random.Range(-vari, vari));
 
             if (maxExpansion * 3 < buildingOrbit[maxExpansion - 1])
             {
