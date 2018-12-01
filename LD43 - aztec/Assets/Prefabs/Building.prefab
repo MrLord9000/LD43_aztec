@@ -53,10 +53,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  houseSprite: {fileID: 21300000, guid: 8ef05f8ac30557a4997075cd5ae266f5, type: 3}
-  workshopSprite: {fileID: 21300000, guid: 005da53f70eed5540b4679485aa3864e, type: 3}
-  farmSprite: {fileID: 21300000, guid: b472ae51341e57b4da61f6f14f832f7b, type: 3}
-  fortSprite: {fileID: 21300000, guid: cfd21d5f0609dd14b8946d01e4616527, type: 3}
+  houseSprite: {fileID: 21300000, guid: 275214fd073ef6f4f85c57f47851473e, type: 3}
+  workshopSprite: {fileID: 21300000, guid: 4fc465013c2f7ae40868c4bcd1a71950, type: 3}
+  farmSprite: {fileID: 21300000, guid: 84ea8c90d1521a84da630c48f7161e55, type: 3}
+  fortSprite: {fileID: 21300000, guid: 91469d78cc5a169498d8db58f7b5855e, type: 3}
   capacity: 2
 --- !u!212 &212681711541183474
 SpriteRenderer:
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8ef05f8ac30557a4997075cd5ae266f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 275214fd073ef6f4f85c57f47851473e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
