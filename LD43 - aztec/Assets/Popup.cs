@@ -6,9 +6,9 @@ public class Popup : MonoBehaviour {
 
     public GameObject buttonBox;
 
-    public bool sw = false;
+    private bool sw = false;
 
-    private void OnValidate()
+    private void Start()
     {
         buttonBox.SetActive(sw);
     }
