@@ -69,8 +69,3 @@ public class SpawnRandomGrid : MonoBehaviour {
     }
     
 }
-
-class Building
-{
-    public Vector2 position;
-}
