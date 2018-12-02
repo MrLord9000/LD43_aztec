@@ -17,18 +17,15 @@ public class SpawnRandomGrid : MonoBehaviour
     private int maxExpansion = 1;
     private int buildingNumber = 0;
     private List<int> buildingOrbit;
-    private List<Vector2> buildingList;
+    public Board b;
 
     private void Awake()
     {
         buildingOrbit = new List<int>();
-        buildingList = new List<Vector2>
-        {
-            new Vector2(1, 1),
-            new Vector2(-1, 1),
-            new Vector2(1, -1),
-            new Vector2(-1, -1)
-        };
+        b.lockedTiles.Add(new Vector2(1, 1));
+        b.lockedTiles.Add(new Vector2(-1, 1));
+        b.lockedTiles.Add(new Vector2(1, -1));
+        b.lockedTiles.Add(new Vector2(-1, -1));
         buildingOrbit.Add(0);
         mapSize = (2 * maxRangeSpawn.x + 1) * (2 * maxRangeSpawn.y + 1);
     }
@@ -44,14 +41,14 @@ public class SpawnRandomGrid : MonoBehaviour
 
             spawnPlace = new Vector2(posX, posY);
 
-            if (buildingList.Contains(spawnPlace) && buildingNumber < mapSize)
+            if (b.lockedTiles.Contains(spawnPlace) && buildingNumber < mapSize)
             {
                 again = true;
             }
             else
             {
                 again = false;
-                buildingList.Add(spawnPlace);
+                b.lockedTiles.Add(spawnPlace);
                 buildingNumber++;
                 buildingOrbit[maxExpansion - 1]++;
             }

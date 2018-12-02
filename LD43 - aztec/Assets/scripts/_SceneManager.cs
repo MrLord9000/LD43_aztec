@@ -8,12 +8,7 @@ public class _SceneManager : MonoBehaviour {
     public List<GameObject> units;
     public List<GameObject> houses;
 
-    public int startingUnits = 4;
-    public int timeMultiplier = 1;
-    public float buildingTimeCost = 100.0f;
-    public float buildingTimeLeft = 0f;
-    public float unitSpawnTimeCost = 200.0f;
-    public float unitSpawnTimeLeft = 0f;
+    public Board b;
 
     private SpawnRandomGrid srg;
     private SpawnRandomUnit sru;
@@ -22,7 +17,7 @@ public class _SceneManager : MonoBehaviour {
     {
         srg = GetComponent<SpawnRandomGrid>();
         sru = GetComponent<SpawnRandomUnit>();
-        for(int i = 0; i < startingUnits; i++)
+        for(int i = 0; i < b.startingUnits; i++)
         {
             sru.SpawnUnit();
         }
@@ -45,14 +40,14 @@ public class _SceneManager : MonoBehaviour {
     {
         while(true)
         {
-            if (unitSpawnTimeLeft <= 0f)
+            if (b.unitSpawnTimeLeft <= 0f)
             {
-                unitSpawnTimeLeft = unitSpawnTimeCost;
+                b.unitSpawnTimeLeft = b.unitSpawnTimeCost;
                 sru.SpawnUnit();
             }
             else
             {
-                unitSpawnTimeLeft -= timeMultiplier;
+                b.unitSpawnTimeLeft -= b.timeMultiplier;
             }
             yield return new WaitForSeconds(.1f);
         }
@@ -62,14 +57,15 @@ public class _SceneManager : MonoBehaviour {
     {
         while(true)
         {
-            if (buildingTimeLeft <= 0f)
+            if (b.buildingTimeLeft <= 0f)
             {
-                buildingTimeLeft = buildingTimeCost;
+                b.buildingTimeLeft = b.buildingTimeCost;
                 srg.BuildingSpawner();
             }
             else
             {
-                buildingTimeLeft -= timeMultiplier;
+                b.buildingTimeLeft -= b.timeMultiplier;
+                b.buildingTimeLeft -= b.timeMultiplier;
             }
             yield return new WaitForSeconds(.1f);
         }

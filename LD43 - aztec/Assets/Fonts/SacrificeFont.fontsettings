@@ -1,0 +1,206 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!128 &12800000
+Font:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SacrificeFont
+  serializedVersion: 5
+  m_LineSpacing: 0.1
+  m_DefaultMaterial: {fileID: 2100000, guid: 5ff4f31c5b25f2a4aaefbae8488c40c0, type: 2}
+  m_FontSize: 0
+  m_Texture: {fileID: 0}
+  m_AsciiStartOffset: 48
+  m_Tracking: 10
+  m_CharacterSpacing: 10
+  m_CharacterPadding: 10
+  m_ConvertCase: 1
+  m_CharacterRects:
+  - serializedVersion: 2
+    index: 1
+    uv:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0.09090909
+      height: 1
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 20
+      height: -25
+    advance: 0
+    flipped: 0
+  - serializedVersion: 2
+    index: 2
+    uv:
+      serializedVersion: 2
+      x: 1
+      y: 0
+      width: 0.09090909
+      height: 1
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 20
+      height: -25
+    advance: 0
+    flipped: 0
+  - serializedVersion: 2
+    index: 3
+    uv:
+      serializedVersion: 2
+      x: 2
+      y: 0
+      width: 0.09090909
+      height: 1
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 20
+      height: -25
+    advance: 0
+    flipped: 0
+  - serializedVersion: 2
+    index: 4
+    uv:
+      serializedVersion: 2
+      x: 3
+      y: 0
+      width: 0.09090909
+      height: 1
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 20
+      height: -25
+    advance: 0
+    flipped: 0
+  - serializedVersion: 2
+    index: 5
+    uv:
+      serializedVersion: 2
+      x: 4
+      y: 0
+      width: 0.09090909
+      height: 1
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 20
+      height: -25
+    advance: 0
+    flipped: 0
+  - serializedVersion: 2
+    index: 6
+    uv:
+      serializedVersion: 2
+      x: 5
+      y: 0
+      width: 0.09090909
+      height: 1
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 20
+      height: -25
+    advance: 0
+    flipped: 0
+  - serializedVersion: 2
+    index: 1
+    uv:
+      serializedVersion: 2
+      x: 6
+      y: 0
+      width: 0.09090909
+      height: 1
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 20
+      height: -25
+    advance: 0
+    flipped: 0
+  - serializedVersion: 2
+    index: 1
+    uv:
+      serializedVersion: 2
+      x: 7
+      y: 0
+      width: 0.09090909
+      height: 1
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 20
+      height: -25
+    advance: 0
+    flipped: 0
+  - serializedVersion: 2
+    index: 1
+    uv:
+      serializedVersion: 2
+      x: 8
+      y: 0
+      width: 0.09090909
+      height: 1
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 20
+      height: -25
+    advance: 0
+    flipped: 0
+  - serializedVersion: 2
+    index: 1
+    uv:
+      serializedVersion: 2
+      x: 9
+      y: 0
+      width: 0.09090909
+      height: 1
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 20
+      height: -25
+    advance: 0
+    flipped: 0
+  - serializedVersion: 2
+    index: 1
+    uv:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0.09090909
+      height: 1
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 20
+      height: -25
+    advance: 0
+    flipped: 0
+  m_KerningValues: []
+  m_PixelScale: 0.1
+  m_FontData: 
+  m_Ascent: 0
+  m_Descent: 0
+  m_DefaultStyle: 0
+  m_FontNames: []
+  m_FallbackFonts: []
+  m_FontRenderingMode: 0
+  m_UseLegacyBoundsCalculation: 0
+  m_ShouldRoundAdvanceValue: 1

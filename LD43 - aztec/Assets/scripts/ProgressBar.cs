@@ -5,20 +5,28 @@ using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour {
 
-    public GameObject gameManager;
-    private _SceneManager manager;
+    public Board b;
+    public What what;
 
     Button progressBar;
   
 	void Start ()
     {
-        manager = gameManager.GetComponent<_SceneManager>();
         progressBar = GetComponent<Button>();
 	}
 	
 
 	void Update ()
     {
-        progressBar.image.fillAmount = 1 - manager.buildingTimeLeft / manager.buildingTimeCost;
+        switch(what)
+        {
+            case What.farmers:
+                progressBar.image.fillAmount = 1 - b.unitSpawnTimeLeft / b.unitSpawnTimeCost;
+                break;
+            case What.workers:
+                progressBar.image.fillAmount = 1 - b.buildingTimeLeft / b.buildingTimeCost;
+                break;
+        }
+        
     }
 }

@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1529328187646736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.81, y: -1.18, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,7 +60,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 1}
+    oldSize: {x: 0.25, y: 0.5}
     newSize: {x: 8, y: 6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -122,26 +122,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteArchive:
-    WorkerF: {fileID: 21300000, guid: 2beb8fe07a152054386d4d13256bcab1, type: 3}
-    WorkerM: {fileID: 21300000, guid: 2c807fbc50dfaf8448edcc77becdf1fc, type: 3}
-    BuilderF: {fileID: 21300000, guid: a2335a564f448a942bde08a0a85c17ea, type: 3}
-    BuilderM: {fileID: 21300000, guid: 2c807fbc50dfaf8448edcc77becdf1fc, type: 3}
+    WorkerF: {fileID: 21300000, guid: c4822081cac1d304b87accdc15b71266, type: 3}
+    WorkerM: {fileID: 21300000, guid: 788aa81a20c15334cbffe919cd784b0d, type: 3}
+    BuilderF: {fileID: 21300000, guid: 2179debfdb325e64cb2fd3feed6fe23c, type: 3}
+    BuilderM: {fileID: 21300000, guid: b662d58b5959817498696d8ae36c05e2, type: 3}
     Builder1F: {fileID: 21300000, guid: a2335a564f448a942bde08a0a85c17ea, type: 3}
     Builder1M: {fileID: 21300000, guid: 2c807fbc50dfaf8448edcc77becdf1fc, type: 3}
     Builder2F: {fileID: 21300000, guid: 2c807fbc50dfaf8448edcc77becdf1fc, type: 3}
     Builder2M: {fileID: 21300000, guid: 55c4c32071d0d4f49901316dac7d963f, type: 3}
     Builder3F: {fileID: 21300000, guid: 55c4c32071d0d4f49901316dac7d963f, type: 3}
     Builder3M: {fileID: 21300000, guid: 55c4c32071d0d4f49901316dac7d963f, type: 3}
-    FarmerF: {fileID: 21300000, guid: eb42f79cdf455f64fa7efe358e314603, type: 3}
-    FarmerM: {fileID: 21300000, guid: 1d13aed650ad6c44bbad32688cff5127, type: 3}
-    Farmer1F: {fileID: 21300000, guid: 1ef3003bb6458e64ba48223e254e8150, type: 3}
+    FarmerF: {fileID: 21300000, guid: ce85e0edcb8e6c44a902fcf53d32c3b2, type: 3}
+    FarmerM: {fileID: 21300000, guid: 7b55fecb3d022874cbd76990db5660e3, type: 3}
+    Farmer1F: {fileID: 21300000, guid: cf5725c9c7e962442af9ca2814753f4a, type: 3}
     Farmer1M: {fileID: 21300000, guid: 1d13aed650ad6c44bbad32688cff5127, type: 3}
     Farmer2F: {fileID: 21300000, guid: ec36b94ce6d1b1a4a8bb4027a8c235b2, type: 3}
     Farmer2M: {fileID: 21300000, guid: ec36b94ce6d1b1a4a8bb4027a8c235b2, type: 3}
     Farmer3F: {fileID: 21300000, guid: ec36b94ce6d1b1a4a8bb4027a8c235b2, type: 3}
     Farmer3M: {fileID: 21300000, guid: ec36b94ce6d1b1a4a8bb4027a8c235b2, type: 3}
-    SoldierF: {fileID: 21300000, guid: a1f4ca1a3ff259a4cbc7e8574f3b6a65, type: 3}
-    SoldierM: {fileID: 21300000, guid: a1f4ca1a3ff259a4cbc7e8574f3b6a65, type: 3}
+    SoldierF: {fileID: 21300000, guid: 9dc6e4989d2782d479765d8a0516904c, type: 3}
+    SoldierM: {fileID: 21300000, guid: ee4db2c71c095ff41b650c340a21b579, type: 3}
     Soldier1F: {fileID: 21300000, guid: a1f4ca1a3ff259a4cbc7e8574f3b6a65, type: 3}
     Soldier1M: {fileID: 21300000, guid: a1f4ca1a3ff259a4cbc7e8574f3b6a65, type: 3}
     Soldier2F: {fileID: 21300000, guid: a1f4ca1a3ff259a4cbc7e8574f3b6a65, type: 3}
@@ -183,7 +183,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6516f26b75d437241bae3fe833f97d66, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b662d58b5959817498696d8ae36c05e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
