@@ -24,4 +24,11 @@ public class Board : ScriptableObject {
     public HumanStat BuildersProductivity;
     public HumanStat WarriorsProductivity;
 
+
+    public void Curse(HumanStat what, float mod)
+    {
+        what.AddModifier(new StatModifier(mod, StatModType.PercentMul));
+    }
 }
+
+
