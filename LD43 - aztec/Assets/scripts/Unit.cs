@@ -36,6 +36,7 @@ public class Unit : MonoBehaviour {
 
     private void Start()
     {
+        gameController = GameObject.FindGameObjectWithTag("GameController");
         stats = gameController.GetComponent<UnitStatistics>();
         //stats.listOfAllUnits.Add(this);
 

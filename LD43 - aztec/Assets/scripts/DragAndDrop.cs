@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour {
 
-    private GameObject building = null;
+    private GameObject building;
     private Unit unit;
     private Transform old;
 
     private void Start()
     {
+        building = null;
         //Debug.Log("DUPA");
         //unit = GetComponent<Unit>();
         //Debug.Log(unit.gameObject.transform.position);

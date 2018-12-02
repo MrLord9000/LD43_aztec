@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 61446452912125926}
   - component: {fileID: 114127019357478458}
   m_Layer: 0
-  m_Name: Building
+  m_Name: Building_andrzej
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -570,7 +570,7 @@ SpriteRenderer:
   m_Size: {x: 8, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!212 &212860791278286534

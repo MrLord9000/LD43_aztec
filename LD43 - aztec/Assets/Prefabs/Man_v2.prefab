@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114564656141395724}
   - component: {fileID: 114471930521160690}
   - component: {fileID: 61835643986390264}
-  - component: {fileID: 114136247256517474}
+  - component: {fileID: 114620092506831996}
   - component: {fileID: 114065390241760686}
   m_Layer: 0
   m_Name: Man_v2
@@ -148,17 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
---- !u!114 &114136247256517474
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1529328187646736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 468878173d39e1244af4f78848d861c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114432308464360862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -303,6 +292,17 @@ MonoBehaviour:
   sex: 0
   role: 0
   variant: 0
+--- !u!114 &114620092506831996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529328187646736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd0f3a7abbd722940a357f1966fc278f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114864664259677662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -356,9 +356,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -2129203847
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b662d58b5959817498696d8ae36c05e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

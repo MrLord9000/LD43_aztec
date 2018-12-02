@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 61446452912125926}
   - component: {fileID: 114127019357478458}
   - component: {fileID: 114029005783984890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -305,11 +305,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  capacity: 2
+  assigned: 0
   houseSprite: {fileID: 21300000, guid: d907c1a1b42160142abcddc3eff46202, type: 3}
   workshopSprite: {fileID: 21300000, guid: bcd90c0d88a3847498142c7dd48400e7, type: 3}
   farmSprite: {fileID: 21300000, guid: 5512beb562e8700448095d8141fa0c48, type: 3}
   fortSprite: {fileID: 21300000, guid: 7071e468069541b488c237425f11152e, type: 3}
-  capacity: 2
+  slotsT: []
+  slots: 0000000000
 --- !u!114 &114755940807343200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -448,8 +451,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2129203847
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d907c1a1b42160142abcddc3eff46202, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
