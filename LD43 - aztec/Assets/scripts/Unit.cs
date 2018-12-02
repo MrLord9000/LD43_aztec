@@ -7,24 +7,45 @@ public enum Age { child, adult, old }
 
 public class Unit : MonoBehaviour {
 
+    
+    public GameObject gameController;
+    private UnitStatistics stats;
+
+    public int expRequire;
+    public GameObject house;
+    public int slotInHouse;
+
     public Age lifeTime;
     public float lifetimeUnassigned = 20f;
     private float maxLifetimeUnassigned;
     public float lifetimeAssigned = 1000f;
     public float lifetimeOld = 300f;
 
+    public Sex sex;
+    public Role role;
+    public Variant variant = Variant.none;
+
     private Button timeBar;
     private SpriteRenderer spriteRenderer;
 
+
+    ~Unit()
+    {
+        //stats.listOfAllUnits;
+    }
+
     private void Start()
     {
+        stats = gameController.GetComponent<UnitStatistics>();
+        //stats.listOfAllUnits.Add(this);
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         transform.localScale = new Vector2(1f, 1f);
         maxLifetimeUnassigned = lifetimeUnassigned;
         timeBar = GetComponentInChildren<Button>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         switch(lifeTime)
         {
