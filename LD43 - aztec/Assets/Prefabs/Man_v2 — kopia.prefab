@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 114449856094944438}
   - component: {fileID: 114752345452624976}
   m_Layer: 0
-  m_Name: Man_v2
+  m_Name: "Man_v2 \u2014 kopia"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,21 +313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81a53f1fbd03ce4d9a0fdf1b7ed5459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
   expRequire: 25
   house: {fileID: 0}
   slotInHouse: 0
-  builderLevel:
-    isWorking: 0
-    level: 0
-    exp: 0
-  farmerLevel:
-    isWorking: 0
-    level: 0
-    exp: 0
-  soldierLevel:
-    isWorking: 0
-    level: 0
-    exp: 0
   lifeTime: 0
   lifetimeUnassigned: 20
   lifetimeAssigned: 1000
