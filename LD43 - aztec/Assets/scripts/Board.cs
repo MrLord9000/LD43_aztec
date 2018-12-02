@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HumanStats;
 
 [CreateAssetMenu(fileName = "boardData", menuName = "Board")]
 public class Board : ScriptableObject {
@@ -18,5 +19,9 @@ public class Board : ScriptableObject {
     public int nFarmers = 0;
     public int nWarriors = 0;
     public int nUnits = 0;
+
+    public HumanStat FarmersProductivity;
+    public HumanStat BuildersProductivity;
+    public HumanStat WarriorsProductivity;
 
 }

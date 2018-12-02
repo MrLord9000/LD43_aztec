@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using HumanStats;
 
 public enum Age { child, adult, old }
 public enum Sex { female, male }
@@ -31,19 +32,28 @@ public class Unit : MonoBehaviour {
     public Sex sex;
     public Role role;
     public Variant variant = Variant.none;
+    public int Level;
 
     private Button timeBar;
     private SpriteRenderer spriteRenderer;
 
+    public HumanStat productivity;
+    public StatModifier modifier;
+
     private void Start()
     {
-        gameController = GameObject.FindGameObjectWithTag("GameController");
-        stats = gameController.GetComponent<UnitStatistics>();
+        productivity = new HumanStat(0f);
 
-        stats.listOfAllUnits.Add(this);
+	    gameController = GameObject.FindGameObjectWithTag("GameController");
+        stats = gameController.GetComponent<UnitStatistics>();
 
         stats.NumberOf_Units++;
         stats.NumberOf_Childern++;
+
+        stats.listOfAllUnits.Add(this);
+
+        //productivity.BaseValue = 0f;
+        Level = 1;
 
         int tmp = (int)Random.Range(0, 2);
         
@@ -57,6 +67,10 @@ public class Unit : MonoBehaviour {
             sex = Sex.female;
             stats.NumberOf_Females++;
         }
+
+
+        //stats = gameController.GetComponent<UnitStatistics>();
+        //stats.listOfAllUnits.Add(this);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         transform.localScale = new Vector2(1f, 1f);
@@ -79,8 +93,9 @@ public class Unit : MonoBehaviour {
                     Die();
                 }
                 lifetimeUnassigned -= Time.deltaTime;
-                timeBar.image.fillAmount = lifetimeUnassigned / maxLifetimeUnassigned;
+                //timeBar.image.fillAmount = lifetimeUnassigned / maxLifetimeUnassigned;
                 break;
+
             case Age.adult:
                 if (lifetimeAssigned <= 0)
                 {
@@ -91,6 +106,7 @@ public class Unit : MonoBehaviour {
                 }
                 lifetimeAssigned -= Time.deltaTime;
                 break;
+
             case Age.old:
                 if (lifetimeOld <= 0) Die();
                 lifetimeOld -= Time.deltaTime;
@@ -100,6 +116,8 @@ public class Unit : MonoBehaviour {
 
     IEnumerator ExpCoroutine(Level x, Role y)
     {
+        float[] buffs = { 0f, 0f, 0f, 01f, 02f, 0.3f, 0.4f, 0.6f, 0.8f, 1f };
+
         while (x.level < 10)
         {
             if (x.isWorking && (x.level != 3 || role == y))
@@ -122,6 +140,9 @@ public class Unit : MonoBehaviour {
 
                 x.exp++;
 
+                productivity.AddModifier(new StatModifier(buffs[Level-1], StatModType.PercentAdd));
+
+
                 if (x.exp == expRequire)
                 {
                     x.exp = 0;
@@ -138,6 +159,8 @@ public class Unit : MonoBehaviour {
     {
         if ( roleIsAssigned || role == Role.worker ) return;
 
+        productivity.AddModifier(new StatModifier(1f, StatModType.Flat));
+
         this.role = role;
 
         roleIsAssigned = true;
@@ -147,16 +170,48 @@ public class Unit : MonoBehaviour {
         {
             case Role.builder:
                 stats.NumberOf_Builders++;
-                return;
+                break;
             case Role.farmer:
                 stats.NumberOf_Farmers++;
-                return;
+                break;
             case Role.soldier:
                 stats.NumberOf_Soldiers++;
-                return;
-        }        
+                break;
+        }
+
+        modifier = new StatModifier(productivity.Value, StatModType.Flat,this);
+        switch(role)
+        {
+            case Role.builder:
+                stats.BuildersProductivity.AddModifier(modifier);
+                break;
+            case Role.farmer:
+                stats.FarmersProductivity.AddModifier(modifier);
+                break;
+            case Role.soldier:
+                stats.SoldiersProductivity.AddModifier(modifier);
+                break;
+        }
     }
 
+    private void UpdateGlobalProductivity()
+    {
+        switch (role)
+        {
+            case Role.builder:
+                stats.BuildersProductivity.RemoveAllModifiersFromSource(this);
+                stats.BuildersProductivity.AddModifier(modifier);
+                break;
+            case Role.farmer:
+                stats.FarmersProductivity.RemoveAllModifiersFromSource(this);
+                stats.FarmersProductivity.AddModifier(modifier);
+                break;
+            case Role.soldier:
+                stats.SoldiersProductivity.RemoveAllModifiersFromSource(this);
+                stats.SoldiersProductivity.AddModifier(modifier);
+                break;
+        }
+    }
     void SetVariant()
     {
         int rand = (int)Random.Range(1, 4);
@@ -209,6 +264,9 @@ public class Unit : MonoBehaviour {
                 }
                 return;
         }
+
+        productivity.AddModifier(new StatModifier(1f, StatModType.Flat));
+
     }
 
     void Die()
@@ -223,6 +281,7 @@ public class Unit : MonoBehaviour {
                 stats.NumberOf_Workers--;
                 break;
             case Role.builder:
+                stats.BuildersProductivity.RemoveAllModifiersFromSource(this);
                 stats.NumberOf_Builders--;
                 switch (variant)
                 {
@@ -238,6 +297,7 @@ public class Unit : MonoBehaviour {
                 }
                 break;
             case Role.farmer:
+                stats.FarmersProductivity.RemoveAllModifiersFromSource(this);
                 stats.NumberOf_Farmers--;
                 switch (variant)
                 {
@@ -253,6 +313,7 @@ public class Unit : MonoBehaviour {
                 }
                 break;
             case Role.soldier:
+                stats.SoldiersProductivity.RemoveAllModifiersFromSource(this);
                 stats.NumberOf_Soldiers--;
                 switch (variant)
                 {
@@ -269,16 +330,31 @@ public class Unit : MonoBehaviour {
                 break;
         }
 
-        switch(lifeTime)
+        switch (lifeTime)
         {
             case Age.child:
                 stats.NumberOf_Childern--;
+                if (lifetimeUnassigned <= 0)
+                {
+                    transform.localScale = new Vector2(1.5f, 1.5f);
+                    lifeTime = Age.adult; //change this
+                }
+                lifetimeUnassigned -= Time.deltaTime;
+                timeBar.image.fillAmount = lifetimeUnassigned / maxLifetimeUnassigned;
                 break;
             case Age.adult:
                 stats.NumberOf_Adults--;
+                if (lifetimeAssigned <= 0)
+                {
+                    spriteRenderer.color = new Color(255f, 114f, 114f);
+                    lifeTime = Age.old;
+                }
+                lifetimeAssigned -= Time.deltaTime;
                 break;
             case Age.old:
                 stats.NumberOf_Olds--;
+                if (lifetimeOld <= 0) Destroy(this.gameObject);
+                lifetimeOld -= Time.deltaTime;
                 break;
         }
 
@@ -287,6 +363,10 @@ public class Unit : MonoBehaviour {
 
         Destroy(this.gameObject);
     }
+    //------------------------------------------------------------------------------
+
+
+
 }
 
 [System.Serializable]
@@ -296,3 +376,4 @@ public class Level
     public int level = 0;
     public int exp = 0;
 }
+

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Options: MonoBehaviour
+public class Options2: MonoBehaviour
 {
 
     public GameObject OptionsMenu;

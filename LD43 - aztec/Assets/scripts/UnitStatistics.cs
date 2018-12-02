@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HumanStats;
 
 public class UnitStatistics : MonoBehaviour {
 
@@ -33,6 +34,9 @@ public class UnitStatistics : MonoBehaviour {
     public int NumberOf_Adults;
     public int NumberOf_Olds;
 
+    public HumanStat BuildersProductivity;
+    public HumanStat FarmersProductivity;
+    public HumanStat SoldiersProductivity;
 
 
     // Use this for initialization
