@@ -13,6 +13,15 @@ public class _SceneManager : MonoBehaviour {
     private SpawnRandomGrid srg;
     private SpawnRandomUnit sru;
 
+    private void Awake()
+    {
+        b.lockedTiles.Clear();
+        b.lockedTiles.Add(new Vector2(1, 1));
+        b.lockedTiles.Add(new Vector2(-1, 1));
+        b.lockedTiles.Add(new Vector2(1, -1));
+        b.lockedTiles.Add(new Vector2(-1, -1));
+    }
+
     private void Start()
     {
         srg = GetComponent<SpawnRandomGrid>();

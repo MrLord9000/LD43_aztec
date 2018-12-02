@@ -22,10 +22,6 @@ public class SpawnRandomGrid : MonoBehaviour
     private void Awake()
     {
         buildingOrbit = new List<int>();
-        b.lockedTiles.Add(new Vector2(1, 1));
-        b.lockedTiles.Add(new Vector2(-1, 1));
-        b.lockedTiles.Add(new Vector2(1, -1));
-        b.lockedTiles.Add(new Vector2(-1, -1));
         buildingOrbit.Add(0);
         mapSize = (2 * maxRangeSpawn.x + 1) * (2 * maxRangeSpawn.y + 1);
     }
@@ -33,7 +29,6 @@ public class SpawnRandomGrid : MonoBehaviour
     public void BuildingSpawner()
     {
         bool again = false;
-        //print("qwerty");
         do
         {
             posX = Random.Range(-maxExpansion, maxExpansion + 1) * gridSize.x + 1;
@@ -41,9 +36,12 @@ public class SpawnRandomGrid : MonoBehaviour
 
             spawnPlace = new Vector2(posX, posY);
 
-            if (b.lockedTiles.Contains(spawnPlace) && buildingNumber < mapSize)
+            //Debug.Log();
+
+            if(b.lockedTiles.Contains(spawnPlace)) //(false && buildingNumber < mapSize)
             {
                 again = true;
+                continue;
             }
             else
             {

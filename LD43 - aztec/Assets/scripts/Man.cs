@@ -2,13 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Age
-{
-    child,
-    adult,
-    old
-}
-
 public enum Sex
 {
     female,
