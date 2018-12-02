@@ -26,6 +26,9 @@ public class UnitStatistics : MonoBehaviour {
     public int NumberOf_Soldiers2;
     public int NumberOf_Soldiers3;
 
+    public int NumberOf_Males;
+    public int NumberOf_Females;
+
     public int NumberOf_Childern;
     public int NumberOf_Adults;
     public int NumberOf_Olds;

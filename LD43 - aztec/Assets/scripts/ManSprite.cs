@@ -50,11 +50,11 @@ public class ManSprite : MonoBehaviour {
 
     public SpritesArchve spriteArchive;
     private SpriteRenderer spriteRenderer;
-    private Man man;
+    private Unit man;
 
     // Use this for initialization
     void Start () {
-        man = GetComponent<Man>();
+        man = GetComponent<Unit>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         if( man.sex == Sex.male )

@@ -2,27 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Sex
-{
-    female,
-    male
-}
-public enum Role
-{
-    worker,
-
-    builder,
-    farmer,
-    soldier
-}
-public enum Variant
-{
-    none,
-    _1,
-    _2,
-    _3
-}
-
+/*
 public class Man : MonoBehaviour
 {
     public int expRequire;
@@ -111,3 +91,4 @@ public class Man : MonoBehaviour
         }
     }
 }
+*/
