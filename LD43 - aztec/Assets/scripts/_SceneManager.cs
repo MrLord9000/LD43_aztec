@@ -35,17 +35,6 @@ public class _SceneManager : MonoBehaviour {
         StartCoroutine("UnitMaking");
     }
 
-    private void Update()
-    {
-        
-    }
-
-    int CalculateBuildForce()
-    {
-        
-        return 0;
-    }
-
     IEnumerator UnitMaking()
     {
         while(true)
@@ -57,7 +46,7 @@ public class _SceneManager : MonoBehaviour {
             }
             else
             {
-                b.unitSpawnTimeLeft -= b.timeMultiplier;
+                b.unitSpawnTimeLeft -= b.nFarmers;
             }
             yield return new WaitForSeconds(.1f);
         }
@@ -74,8 +63,7 @@ public class _SceneManager : MonoBehaviour {
             }
             else
             {
-                b.buildingTimeLeft -= b.timeMultiplier;
-                b.buildingTimeLeft -= b.timeMultiplier;
+                b.buildingTimeLeft -= b.nWorkers;
             }
             yield return new WaitForSeconds(.1f);
         }

@@ -8,7 +8,7 @@ public enum What { units, workers, warriors, farmers };
 public class LoadText : MonoBehaviour {
 
     public What thing;
-    public Board b;
+    private Board b;
     private Text number;
     private void Start()
     {

@@ -31,15 +31,17 @@ MonoBehaviour:
   - {x: 3.9, y: 5.41}
   - {x: 4.91, y: 5.11}
   - {x: -6.7699995, y: 2.9}
+  - {x: 5, y: 1}
+  - {x: 5, y: 5}
   startingUnits: 3
   startingBuildings: 2
-  timeMultiplier: 0
+  timeMultiplier: 5
   buildingTimeCost: 100
-  buildingTimeLeft: 60
+  buildingTimeLeft: 94
   unitSpawnTimeCost: 200
-  unitSpawnTimeLeft: 130
-  nWorkers: 0
-  nFarmers: 0
+  unitSpawnTimeLeft: 41
+  nWorkers: 1
+  nFarmers: 1
   nWarriors: 0
   nUnits: 0
   FarmersProductivity:

@@ -17,7 +17,7 @@ public class Unit : MonoBehaviour {
     public int expRequire;
     public GameObject house;
     public int slotInHouse;
-    
+
     public Level builderLevel = new Level();
     public Level farmerLevel = new Level();
     public Level soldierLevel = new Level();
@@ -93,7 +93,7 @@ public class Unit : MonoBehaviour {
                     Die();
                 }
                 lifetimeUnassigned -= Time.deltaTime;
-                //timeBar.image.fillAmount = lifetimeUnassigned / maxLifetimeUnassigned;
+                timeBar.image.fillAmount = lifetimeUnassigned / maxLifetimeUnassigned;
                 break;
 
             case Age.adult:
@@ -334,27 +334,12 @@ public class Unit : MonoBehaviour {
         {
             case Age.child:
                 stats.NumberOf_Childern--;
-                if (lifetimeUnassigned <= 0)
-                {
-                    transform.localScale = new Vector2(1.5f, 1.5f);
-                    lifeTime = Age.adult; //change this
-                }
-                lifetimeUnassigned -= Time.deltaTime;
-                timeBar.image.fillAmount = lifetimeUnassigned / maxLifetimeUnassigned;
                 break;
             case Age.adult:
                 stats.NumberOf_Adults--;
-                if (lifetimeAssigned <= 0)
-                {
-                    spriteRenderer.color = new Color(255f, 114f, 114f);
-                    lifeTime = Age.old;
-                }
-                lifetimeAssigned -= Time.deltaTime;
                 break;
             case Age.old:
                 stats.NumberOf_Olds--;
-                if (lifetimeOld <= 0) Destroy(this.gameObject);
-                lifetimeOld -= Time.deltaTime;
                 break;
         }
 
