@@ -1,34 +1,49 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DragAndDrop_v2 : MonoBehaviour {
 
-    private ContactFilter2D filter;
-    private Collider2D col;
-
-    private void Start()
-    {
-        filter = new ContactFilter2D();
-        filter.SetLayerMask(LayerMask.NameToLayer("Building"));
-        filter.useTriggers = true;
-        filter.useLayerMask = true;
-        col = GetComponent<Collider2D>();
-    }
+    private bool canDrag = true;
+    private LockPointContainer currentPos;
+    private LockPointContainer[] pos;
 
     private void OnMouseDrag()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0f;
-        transform.position = mousePosition;
-    }
-
-    private void Update()
-    {
-        if(Input.GetMouseButtonUp(0))
+        if(canDrag)
         {
-            if (col.IsTouching(col, filter)) Debug.Log("Działa kurwa!");
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0f;
+            transform.position = mousePosition;
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {   
+        if (Input.GetMouseButtonUp(0))
+        {
+            canDrag = false;
+            pos = collision.gameObject.GetComponentsInChildren<LockPointContainer>();
+
+            foreach (var element in pos)
+            {
+                if (!element.occupied)
+                {
+                    currentPos = element;
+                }
+                Debug.Log(element.transform.position);
+            }
+            currentPos.occupied = true;
+            transform.position = currentPos.transform.position;
         }
     }
 
+    private void OnMouseDown()
+    {
+        if(!canDrag)
+        {
+            canDrag = true;
+            currentPos.occupied = false;
+        }
+    }
 }
