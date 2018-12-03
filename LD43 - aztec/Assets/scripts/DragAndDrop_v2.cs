@@ -7,8 +7,14 @@ using UnityEngine;
 public class DragAndDrop_v2 : MonoBehaviour {
 
     private bool isAssigned = false;
+    private Unit thisUnit;
     private LockPointContainer currentPos;
     private LockPointContainer[] target;
+
+    private void Start()
+    {
+        thisUnit = GetComponent<Unit>();
+    }
 
     private void OnMouseDrag()
     {
@@ -28,8 +34,10 @@ public class DragAndDrop_v2 : MonoBehaviour {
         if (isAssigned)
         {
             currentPos.occupied = false;
+            currentPos.worker = null;
+            thisUnit.workplace = null;
+
             isAssigned = false;
-            Debug.Log("Occupied: " + currentPos.occupied);
         }
     }
 
@@ -43,10 +51,14 @@ public class DragAndDrop_v2 : MonoBehaviour {
                 {
                     if (!container.occupied)
                     {
+                        container.worker = gameObject;
                         container.occupied = true;
-                        transform.position = container.transform.position;
 
+                        transform.position = container.transform.position;
+                        
                         currentPos = container;
+                        thisUnit.workplace = currentPos.gameObject;
+
                         isAssigned = true;
                         Debug.Log("Occupied: " + currentPos.occupied);
                         target = null;

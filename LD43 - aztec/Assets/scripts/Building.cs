@@ -21,14 +21,10 @@ public class Building : MonoBehaviour {
     public Sprite workshopSprite;
     public Sprite farmSprite;
     public Sprite fortSprite;
-
-    public Transform[] slotsT;
-
+    
     private SpriteRenderer spriteRenderer;
 
-
-    public bool[] slots = {false,false,false,false,false};
-
+    
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -38,12 +34,10 @@ public class Building : MonoBehaviour {
 	}
     public void SetType(BuildingType type)
     {
+        this.type = type;
+
         switch (type)
         {
-            case BuildingType.house:
-                spriteRenderer.sprite = houseSprite;
-                capacity = 2;
-                return;
             case BuildingType.workshop:
                 spriteRenderer.sprite = workshopSprite;
                 capacity = 1;
@@ -58,26 +52,5 @@ public class Building : MonoBehaviour {
                 return;
         }
     }
-
-    public void SetInSlot( GameObject obj)
-    {
-        switch (obj.GetComponent<Unit>().slotInHouse)
-        {
-            case 0:
-                obj.transform.position = slotsT[0].position;
-                break;
-            case 1:
-                obj.transform.position = slotsT[1].position;
-                break;
-            case 2:
-                obj.transform.position = slotsT[2].position;
-                break;
-            case 3:
-                obj.transform.position = slotsT[3].position;
-                break;
-            case 4:
-                obj.transform.position = slotsT[4].position;
-                break;
-        }
-    }
+   
 }

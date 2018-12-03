@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour {
 
     private GameObject gameController;
     private UnitStatistics stats;
+    public GameObject workplace;
 
     public int expRequire;
     public GameObject house;
@@ -112,6 +113,76 @@ public class Unit : MonoBehaviour {
                 lifetimeOld -= Time.deltaTime;
                 break;
         }
+        
+
+
+        if (workplace != null)
+        {
+            switch(workplace.GetComponentInParent<Building>().type)
+            {
+                case BuildingType.workshop:
+                    Work(BuildingType.workshop);
+                    break;
+                case BuildingType.farm:
+                    Work(BuildingType.farm);
+                    break;
+                case BuildingType.fort:
+                    Work(BuildingType.fort);
+                    break;
+                case BuildingType.house:
+                    Work(BuildingType.house);
+                    break;
+            }
+        }
+        else
+        {
+            builderLevel.isWorking = false;
+            farmerLevel.isWorking = false;
+            soldierLevel.isWorking = false;
+        }
+    }
+
+    void Work(BuildingType workplace)
+    {
+        switch (workplace)
+        {
+            case BuildingType.workshop:
+                Debug.Log("working in " + workplace);
+                builderLevel.isWorking = true;
+                farmerLevel.isWorking = false;
+                soldierLevel.isWorking = false;
+
+
+                return;
+
+            case BuildingType.farm:
+                Debug.Log("working in " + workplace);
+                builderLevel.isWorking = false;
+                farmerLevel.isWorking = true;
+                soldierLevel.isWorking = false;
+
+
+                return;
+
+            case BuildingType.fort:
+                Debug.Log("working in " + workplace);
+                builderLevel.isWorking = false;
+                farmerLevel.isWorking = false;
+                soldierLevel.isWorking = true;
+
+
+                return;
+
+            case BuildingType.house:
+                Debug.Log("working in " + workplace);
+                builderLevel.isWorking = false;
+                farmerLevel.isWorking = false;
+                soldierLevel.isWorking = false;
+
+
+                return;
+        }
+
     }
 
     IEnumerator ExpCoroutine(Level x, Role y)
@@ -192,6 +263,8 @@ public class Unit : MonoBehaviour {
                 stats.SoldiersProductivity.AddModifier(modifier);
                 break;
         }
+
+        GetComponent<ManSprite>().UpdateSprite();
     }
 
     private void UpdateGlobalProductivity()
@@ -266,6 +339,8 @@ public class Unit : MonoBehaviour {
         }
 
         productivity.AddModifier(new StatModifier(1f, StatModType.Flat));
+
+        GetComponent<ManSprite>().UpdateSprite();
 
     }
 
