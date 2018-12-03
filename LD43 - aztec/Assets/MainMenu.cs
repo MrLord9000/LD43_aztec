@@ -7,18 +7,15 @@ public class MainMenu : MonoBehaviour {
 
     public void PlayGame ()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Level_01_main");
     }
-    public void Options ()
+
+    public void HiddenCredits()
     {
-        SceneManager.LoadScene("Options");
+        SceneManager.LoadScene("CreditsSecret");
     }
-    public void Credits()
+    public void Exit()
     {
-        SceneManager.LoadScene("Credits");
-    }
-    public void BackButton()
-    {
-        SceneManager.LoadScene("Menu");
+        Application.Quit();
     }
 }

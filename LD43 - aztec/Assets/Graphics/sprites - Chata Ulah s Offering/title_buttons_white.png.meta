@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 64760b944fd37be4f961143d0e697ee7
+guid: 61b6e2faa8b6d7242b218fb719d00f74
 TextureImporter:
   fileIDToRecycleName:
-    21300000: title_buttons_shadow_0
-    21300002: title_buttons_shadow_1
+    21300000: title_buttons_white_0
+    21300002: title_buttons_white_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -86,13 +86,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: title_buttons_shadow_0
+      name: title_buttons_white_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 80
+        y: 84
         width: 218
-        height: 72
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -100,19 +100,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c36960e30ad75746bc6beed60fce33f
+      spriteID: 4710717ae6f065448a1b71a495605c43
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: title_buttons_shadow_1
+      name: title_buttons_white_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 218
-        height: 79
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,7 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 200b1883dd2a4d64b92b523b303a6e55
+      spriteID: c89b3ba27165ed448a11cf188137998e
       vertices: []
       indices: 
       edges: []

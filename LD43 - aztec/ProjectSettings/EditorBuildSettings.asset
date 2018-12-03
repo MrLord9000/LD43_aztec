@@ -6,21 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Pies.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Menu.unity
-    guid: 82aa4b8229d89334186bf2391d462b62
+    guid: dbbb305e3e8b8764eba7347921800bf3
   - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: e88bde16df1d8a1428d414eef9954575
+    path: Assets/Scenes/CreditsSecret.unity
+    guid: 1b04767b88eeac44295f1a9ba56aebe4
   - enabled: 1
-    path: Assets/Scenes/Options.unity
-    guid: 8c8e037a88fc2d84ebc10547c297fddd
-  - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: f771e50565bda5b468ffcfa35ec29ce9
-  - enabled: 1
-    path: Assets/Scenes/YouLostScene.unity
-    guid: 252640182382a11448f27ecee676a96d
+    path: Assets/Scenes/Level_01_main.unity
+    guid: 4ee2cd00b2becc4439084226c04859ca
   m_configObjects: {}
