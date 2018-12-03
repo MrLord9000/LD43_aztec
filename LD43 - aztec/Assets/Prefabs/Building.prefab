@@ -400,8 +400,6 @@ MonoBehaviour:
   workshopSprite: {fileID: 21300000, guid: b887f9b35102cd643bb00dcb8eaf0a3f, type: 3}
   farmSprite: {fileID: 21300000, guid: 7b5e9fecdb1e84d45b958fcc5ade7848, type: 3}
   fortSprite: {fileID: 21300000, guid: e7b085d5819e0c54bac1b94a9ab369bd, type: 3}
-  slotsT: []
-  slots: 0000000000
 --- !u!114 &114727096640964866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -414,6 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupied: 0
+  worker: {fileID: 0}
 --- !u!114 &114755940807343200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,6 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupied: 0
+  worker: {fileID: 0}
 --- !u!212 &212467241737421122
 SpriteRenderer:
   m_ObjectHideFlags: 1

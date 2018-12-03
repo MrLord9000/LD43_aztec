@@ -201,7 +201,6 @@ public class Unit : MonoBehaviour {
                 productivity.AddModifier(new StatModifier(buffs[Level-1], StatModType.PercentAdd));
                 UpdateGlobalProductivity();
 
-
                 if (x.exp == expRequire)
                 {
                     x.exp = 0;
@@ -333,7 +332,7 @@ public class Unit : MonoBehaviour {
 
     }
 
-    void Die()
+    public void Die()
     {
         stats.listOfAllUnits.Remove(this);
 

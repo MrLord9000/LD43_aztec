@@ -32,9 +32,7 @@ public class DragAndDrop_v2 : MonoBehaviour {
     {
         target = null;
         if (isAssigned)//RELESING WOKER
-        {
-
-            
+        {            
             currentPos.occupied = false;
             currentPos.worker = null;
             thisUnit.workplace = null;
@@ -49,11 +47,16 @@ public class DragAndDrop_v2 : MonoBehaviour {
         {
             if(target != null && !isAssigned)
             {
+                if (target[0].isTemple)
+                {
+                    target[0].GetComponentInParent<TEMPORARY_Sacrefice>().Sacrefice(thisUnit);
+                    return;
+                }
+
                 foreach (LockPointContainer container in target)
                 {
                     if (!container.occupied)//ASSIGING WORKER
                     {
-
                         container.worker = gameObject;
                         container.occupied = true;
 

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class _SceneManager : MonoBehaviour {
 
+    public bool stopHouseBuilding = false;
+    public float buildingTime;
+
     public GameObject manPrefab;
     public List<GameObject> units;
     public List<GameObject> houses;
@@ -59,14 +62,17 @@ public class _SceneManager : MonoBehaviour {
     {
         while(true)
         {
-            if (b.buildingTimeLeft <= 0f)
+            if(!stopHouseBuilding)
             {
-                b.buildingTimeLeft = b.buildingTimeCost;
-                srg.BuildingSpawner();
-            }
-            else
-            {
-                b.buildingTimeLeft -= b.nWorkers;
+                if (b.buildingTimeLeft <= 0f)
+                {
+                    b.buildingTimeLeft = b.buildingTimeCost;
+                    srg.BuildingSpawner();
+                }
+                else
+                {
+                    b.buildingTimeLeft -= b.nWorkers;
+                }
             }
             yield return new WaitForSeconds(.1f);
         }
