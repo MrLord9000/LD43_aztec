@@ -17,10 +17,11 @@ public class SpawnRandomGrid : MonoBehaviour
     private int maxExpansion = 1;
     private int buildingNumber = 0;
     private List<int> buildingOrbit;
-    public Board b;
+    private Board b;
 
     private void Awake()
     {
+        b = Resources.Load<Board>("boardData");
         buildingOrbit = new List<int>();
         buildingOrbit.Add(0);
         mapSize = (2 * maxRangeSpawn.x + 1) * (2 * maxRangeSpawn.y + 1);

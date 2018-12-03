@@ -12,6 +12,7 @@ public class LoadText : MonoBehaviour {
     private Text number;
     private void Start()
     {
+        b = Resources.Load<Board>("boardData");
         number = GetComponent<Text>();
     }
     private void Update()

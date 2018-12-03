@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour {
 
     private void Start()
     {
+        b = Resources.Load<Board>("boardData");
         b.lockedTiles.Add(new Vector2(transform.position.x, transform.position.y));
     }
 }

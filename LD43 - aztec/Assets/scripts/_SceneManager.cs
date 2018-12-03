@@ -8,13 +8,14 @@ public class _SceneManager : MonoBehaviour {
     public List<GameObject> units;
     public List<GameObject> houses;
 
-    public Board b;
+    private Board b;
 
     private SpawnRandomGrid srg;
     private SpawnRandomUnit sru;
 
     private void Awake()
     {
+        b = Resources.Load<Board>("boardData");
         b.lockedTiles.Clear();
         b.lockedTiles.Add(new Vector2(1, 1));
         b.lockedTiles.Add(new Vector2(-1, 1));

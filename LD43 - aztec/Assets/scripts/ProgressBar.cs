@@ -12,9 +12,9 @@ public class ProgressBar : MonoBehaviour {
   
 	void Start ()
     {
+        b = Resources.Load<Board>("boardData");
         progressBar = GetComponent<Button>();
 	}
-	
 
 	void Update ()
     {
