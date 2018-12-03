@@ -21,6 +21,9 @@ public class _SceneManager : MonoBehaviour {
         b.lockedTiles.Add(new Vector2(-1, 1));
         b.lockedTiles.Add(new Vector2(1, -1));
         b.lockedTiles.Add(new Vector2(-1, -1));
+        b.lockedTiles.Add(new Vector2(-2, -2)); //for workers 
+        b.lockedTiles.Add(new Vector2(-2, -1));
+        b.lockedTiles.Add(new Vector2(-1, -2));
     }
 
     private void Start()

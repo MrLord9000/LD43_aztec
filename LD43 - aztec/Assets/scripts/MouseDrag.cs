@@ -18,11 +18,18 @@ public class MouseDrag : MonoBehaviour {
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            Camera.main.orthographicSize = 4;
+            if(Camera.main.orthographicSize > 2)
+            {
+                Camera.main.orthographicSize -= 2;
+            }
+            
         }
         else if(Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
-            Camera.main.orthographicSize = 8;
+            if (Camera.main.orthographicSize < 8)
+            {
+                Camera.main.orthographicSize += 2;
+            }
         }
 
     }

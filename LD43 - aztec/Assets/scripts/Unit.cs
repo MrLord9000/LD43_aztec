@@ -90,7 +90,6 @@ public class Unit : MonoBehaviour {
             case Age.child:
                 if (lifetimeUnassigned <= 0)
                 {
-                    transform.localScale = new Vector2(1.5f, 1.5f);
                     Die();
                 }
                 lifetimeUnassigned -= Time.deltaTime;
@@ -98,6 +97,7 @@ public class Unit : MonoBehaviour {
                 break;
 
             case Age.adult:
+                timeBar.gameObject.SetActive(false); //TEMPORARY!
                 if (lifetimeAssigned <= 0)
                 {
                     spriteRenderer.color = new Color(255f, 114f, 114f);
@@ -130,6 +130,7 @@ public class Unit : MonoBehaviour {
                     Work(BuildingType.fort);
                     break;
                 case BuildingType.house:
+                    lifeTime = Age.adult;
                     Work(BuildingType.house);
                     break;
             }
@@ -226,7 +227,7 @@ public class Unit : MonoBehaviour {
         }
     }
 
-    void SelectRole(Role role)
+    public void SelectRole(Role role)
     {
         if ( roleIsAssigned || role == Role.worker ) return;
 
@@ -235,7 +236,7 @@ public class Unit : MonoBehaviour {
         this.role = role;
 
         roleIsAssigned = true;
-        stats.NumberOf_Workers--;
+        stats.NumberOf_Units--;
 
         switch(role)
         {

@@ -8,11 +8,12 @@ public enum What { units, workers, warriors, farmers };
 public class LoadText : MonoBehaviour {
 
     public What thing;
-    private Board b;
+    private UnitStatistics stats;
     private Text number;
     private void Start()
     {
-        b = Resources.Load<Board>("boardData");
+        GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
+        stats = gameController.GetComponent<UnitStatistics>();
         number = GetComponent<Text>();
     }
     private void Update()
@@ -20,16 +21,16 @@ public class LoadText : MonoBehaviour {
         switch(thing)
         {
             case What.units:
-                number.text = b.nUnits.ToString();
+                number.text = stats.NumberOf_Adults.ToString();
                 break;
             case What.farmers:
-                number.text = b.nFarmers.ToString();
+                number.text = (stats.NumberOf_Builders + stats.NumberOf_Builders1 + stats.NumberOf_Builders2 + stats.NumberOf_Builders3).ToString();
                 break;
             case What.warriors:
-                number.text = b.nWarriors.ToString();
+                number.text = (stats.NumberOf_Soldiers + stats.NumberOf_Soldiers1 + stats.NumberOf_Soldiers2 + stats.NumberOf_Soldiers3).ToString();
                 break;
             case What.workers:
-                number.text = b.nWorkers.ToString();
+                number.text = (stats.NumberOf_Farmers + stats.NumberOf_Farmers1 + stats.NumberOf_Farmers2 + stats.NumberOf_Farmers3).ToString();
                 break;
         }
             
