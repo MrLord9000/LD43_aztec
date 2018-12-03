@@ -118,22 +118,8 @@ public class Unit : MonoBehaviour {
 
         if (workplace != null)
         {
-            switch(workplace.GetComponentInParent<Building>().type)
-            {
-                case BuildingType.workshop:
-                    Work(BuildingType.workshop);
-                    break;
-                case BuildingType.farm:
-                    Work(BuildingType.farm);
-                    break;
-                case BuildingType.fort:
-                    Work(BuildingType.fort);
-                    break;
-                case BuildingType.house:
-                    lifeTime = Age.adult;
-                    Work(BuildingType.house);
-                    break;
-            }
+            if (lifeTime == Age.child) lifeTime = Age.adult;
+            Work(workplace.GetComponentInParent<Building>().type);
         }
         else
         {
@@ -213,6 +199,7 @@ public class Unit : MonoBehaviour {
                 x.exp++;
 
                 productivity.AddModifier(new StatModifier(buffs[Level-1], StatModType.PercentAdd));
+                UpdateGlobalProductivity();
 
 
                 if (x.exp == expRequire)
@@ -236,7 +223,7 @@ public class Unit : MonoBehaviour {
         this.role = role;
 
         roleIsAssigned = true;
-        stats.NumberOf_Units--;
+        stats.NumberOf_Workers--;
 
         switch(role)
         {
@@ -286,6 +273,7 @@ public class Unit : MonoBehaviour {
                 break;
         }
     }
+
     void SetVariant()
     {
         int rand = (int)Random.Range(1, 4);

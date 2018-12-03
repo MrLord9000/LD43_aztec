@@ -15,13 +15,13 @@ public class Sacrefice : MonoBehaviour {
 	void Update () {
 		
 	}
+
     public void RequestManyPeople()
     {
         int howMuch = (int)Random.Range(3, 7);
 
     }
-
-
+    
     public void RequestSpecialist()
     {
 

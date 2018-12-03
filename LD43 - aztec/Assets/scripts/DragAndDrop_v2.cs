@@ -31,8 +31,10 @@ public class DragAndDrop_v2 : MonoBehaviour {
     private void OnCollisionExit2D(Collision2D collision)
     {
         target = null;
-        if (isAssigned)
+        if (isAssigned)//RELESING WOKER
         {
+
+            
             currentPos.occupied = false;
             currentPos.worker = null;
             thisUnit.workplace = null;
@@ -49,8 +51,9 @@ public class DragAndDrop_v2 : MonoBehaviour {
             {
                 foreach (LockPointContainer container in target)
                 {
-                    if (!container.occupied)
+                    if (!container.occupied)//ASSIGING WORKER
                     {
+
                         container.worker = gameObject;
                         container.occupied = true;
 
