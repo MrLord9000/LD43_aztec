@@ -20,8 +20,8 @@ public class Board : ScriptableObject {
     public int nWarriors = 0;
     public int nUnits = 0;
 
-    public HumanStat FarmersProductivity;
-    public HumanStat BuildersProductivity;
-    public HumanStat WarriorsProductivity;
+    public float FarmersProductivity;
+    public float BuildersProductivity;
+    public float SoldiersProductivity;
 
 }

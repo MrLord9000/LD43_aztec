@@ -34,18 +34,26 @@ public class UnitStatistics : MonoBehaviour {
     public int NumberOf_Adults;
     public int NumberOf_Olds;
 
-    public HumanStat BuildersProductivity;
     public HumanStat FarmersProductivity;
+    public HumanStat BuildersProductivity;
     public HumanStat SoldiersProductivity;
 
+    public Board b;
 
     // Use this for initialization
-    void Awake () {
-        listOfAllUnits = new List<Unit>();		
-	}
+    void Awake ()
+    {
+        listOfAllUnits = new List<Unit>();
+        b = Resources.Load<Board>("boardData");
+    }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        b.FarmersProductivity = FarmersProductivity.Value;
+        b.BuildersProductivity = BuildersProductivity.Value;
+        b.SoldiersProductivity = SoldiersProductivity.Value;
+
+        
+    }
 }
