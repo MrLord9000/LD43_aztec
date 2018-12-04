@@ -51,6 +51,9 @@ public class Week : MonoBehaviour {
             }
             if(dayTime > dayLength)
             {
+
+                GameObject.FindGameObjectWithTag("GameController").GetComponentInParent<TEMPORARY_Sacrefice>().GodsAngerIntensyfies();
+                
                 dayTime = 0f;
                 dayOfWeek++;
                 Color temp = nightImg.color;
