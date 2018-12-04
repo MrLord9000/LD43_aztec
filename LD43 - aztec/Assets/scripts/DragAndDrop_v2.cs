@@ -52,6 +52,11 @@ public class DragAndDrop_v2 : MonoBehaviour {
                     target[0].GetComponentInParent<TEMPORARY_Sacrefice>().Sacrefice(thisUnit);
                     return;
                 }
+                if (target[0].isShrine)
+                {
+                    target[0].GetComponentInParent<TEMPORARY_Sacrefice>().EvilSacrefice(thisUnit);
+                    return;
+                }
 
                 foreach (LockPointContainer container in target)
                 {
