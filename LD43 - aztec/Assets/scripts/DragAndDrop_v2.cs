@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class DragAndDrop_v2 : MonoBehaviour {
 
+    [SerializeField]
     private bool isAssigned = false;
     private Unit thisUnit;
     private LockPointContainer currentPos;

@@ -4,10 +4,10 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - houseSprite: {fileID: 21300000, guid: 8ef05f8ac30557a4997075cd5ae266f5, type: 3}
-  - workshopSprite: {fileID: 21300000, guid: 005da53f70eed5540b4679485aa3864e, type: 3}
-  - farmSprite: {fileID: 21300000, guid: b472ae51341e57b4da61f6f14f832f7b, type: 3}
-  - fortSprite: {fileID: 21300000, guid: cfd21d5f0609dd14b8946d01e4616527, type: 3}
+  - houseSprite: {fileID: 21300000, guid: d907c1a1b42160142abcddc3eff46202, type: 3}
+  - workshopSprite: {fileID: 21300000, guid: f3e72d05487a2504daf606ed40b40301, type: 3}
+  - farmSprite: {fileID: 21300000, guid: 2b981039b84ad444784c68e1526bf3e0, type: 3}
+  - fortSprite: {fileID: 21300000, guid: 3ff60f008df24cf4fb7538027ef7124e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
