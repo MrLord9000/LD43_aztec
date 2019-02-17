@@ -10,7 +10,7 @@ public class TileSystem : MonoBehaviour
     {
         Vector2 CartesianCoordinates;
         CartesianCoordinates.x = 63.0f * GridBaseCoordinates.x + 45.0f * GridBaseCoordinates.y;
-        CartesianCoordinates.y = -20.0f * GridBaseCoordinates.x - 31.0f * GridBaseCoordinates.y;
+        CartesianCoordinates.y = -20.0f * GridBaseCoordinates.x + 31.0f * GridBaseCoordinates.y;
         return CartesianCoordinates;
     }
     public static Vector2 CartesianToGridBase(Vector2 CartesianCoordinates)
@@ -32,6 +32,9 @@ public class TileSystem : MonoBehaviour
         Vector2 GridBaseCoordinates = CartesianToGridBase(CartesianCoordinates);
         return GridBaseToTile(GridBaseCoordinates);
     }
+
+    
+
  
 
 
