@@ -9,6 +9,7 @@ public abstract class Building : MonoBehaviour
         farm,
         barracks,
         workshop,
+        other,
     }
 
     // Start is called before the first frame update

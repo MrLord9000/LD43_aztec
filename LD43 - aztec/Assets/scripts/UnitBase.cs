@@ -9,16 +9,55 @@ public enum Sex
 }
 
 [System.Serializable]
-public struct Exp
+public class Exp
 {
-    public Building.Type key;
-    public int value;
-}  
+    [SerializeField]
+    private int peasant = 0;
+    [SerializeField]
+    private int worker = 0;
+    [SerializeField]
+    private int soldier = 0;
+
+    public int this[Building.Type key]
+    {
+        get
+        {
+            switch (key)
+            {
+                case Building.Type.farm:
+                    return peasant;
+                case Building.Type.workshop:
+                    return worker;
+                case Building.Type.barracks:
+                    return soldier;
+                default:
+                    return -1;
+            }
+        }
+
+        set
+        {
+            switch (key)
+            {
+                case Building.Type.farm:
+                    peasant = value;
+                    break;
+                case Building.Type.workshop:
+                    worker = value;
+                    break;
+                case Building.Type.barracks:
+                    soldier = value;
+                    break;
+            }
+        }
+    }
+
+}
+
 
 public class UnitBase : MonoBehaviour
 {
     private int expRequiredToLevelUp = 100;
-
 
     [SerializeField]
     private string unitName;  // name jest dziedziczone z MonoBehaviour
@@ -29,34 +68,49 @@ public class UnitBase : MonoBehaviour
     // zmienić typ gdy właściwy skrypt będzie gotowy
     public GameObject workplace;
 
-    public Dictionary<Building.Type, int> exp;
+    [SerializeField]
+    Exp exp;
 
-
-    void Awake()
-    {
-        exp = new Dictionary<Building.Type, int>
-        {
-            { Building.Type.farm, 0 },
-            { Building.Type.workshop, 0 },
-            { Building.Type.barracks, 0 },
-        };
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(ExpCoroutine());
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public virtual Building.Type SuitableBuildingType() { return Building.Type.other; }
+
+
+    IEnumerator ExpCoroutine()
     {
+        while (true)
+        {
+            Building.Type currentBT = workplace.GetComponent<Building>().BuildingType();
 
+            if ( currentBT == SuitableBuildingType() )
+            {
+                if( exp[currentBT] >= expRequiredToLevelUp)
+                {
+                    exp[currentBT] = 0;
+                    level++;
+                }
+
+                exp[currentBT]++;
+            }
+            else
+            {
+                if (exp[currentBT] < expRequiredToLevelUp)
+                {
+                    exp[currentBT]++;
+                }
+            }
+
+            yield return new WaitForSeconds(1f);
+        }
     }
 
 
-    
-    IEnumerator ExpCoroutine( Building.Type buildingType, bool expirienced)
+    /*
+    IEnumerator ExpCoroutine( Building.Type buildingType, bool experienced)
     {
         while (true)
         {
@@ -74,9 +128,9 @@ public class UnitBase : MonoBehaviour
 
             exp[buildingType]++;
 
-            if(exp[buildingType] == 100)
+            if(exp[buildingType] >= expRequiredToLevelUp)
             {
-                if (expirienced)
+                if (experienced)
                 {
                     level++;
                     exp[buildingType] = 0;
@@ -92,6 +146,7 @@ public class UnitBase : MonoBehaviour
             }
         }
     }
+    */
 
 
 

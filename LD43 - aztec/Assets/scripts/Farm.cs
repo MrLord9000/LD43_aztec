@@ -16,8 +16,5 @@ public class Farm : Building
         
     }
 
-    public override Type BuildingType()
-    {
-        return Type.farm;
-    }
+    public override Type BuildingType() { return Type.farm; }
 }
