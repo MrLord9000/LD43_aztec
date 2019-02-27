@@ -4363,6 +4363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1568979016}
   - component: {fileID: 1568979017}
+  - component: {fileID: 1568979018}
   m_Layer: 31
   m_Name: kolo
   m_TagString: Untagged
@@ -4432,6 +4433,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1568979018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568979015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646622ae79782294fb42dd42309f87b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: 
+  workplace: {fileID: 0}
 --- !u!1 &1585027085
 GameObject:
   m_ObjectHideFlags: 0
