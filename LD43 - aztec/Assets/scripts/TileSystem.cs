@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TileSystem : MonoBehaviour
 {
-
     // Grid Base: [63,-20] , [45,31]
     public static Vector2 GridBaseToCartesian(Vector2 GridBaseCoordinates)
     {
@@ -33,22 +32,6 @@ public class TileSystem : MonoBehaviour
         return GridBaseToTile(GridBaseCoordinates);
     }
 
-    
-
- 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public static Vector2 OldGridBaseToCartesian(Vector2 GridBaseCoordinates)
     {
         Vector2 CartesianCoordinates;
