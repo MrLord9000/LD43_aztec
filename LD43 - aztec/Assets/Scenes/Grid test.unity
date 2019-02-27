@@ -1449,11 +1449,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492024676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 110.6, y: 62.8, z: 0}
+  m_LocalPosition: {x: 141.6, y: 95.3, z: 0}
   m_LocalScale: {x: 24.702, y: 24.702, z: 24.702}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &589587963
 GameObject:
@@ -3826,10 +3826,10 @@ Transform:
   m_GameObject: {fileID: 1362900995}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 32.1, y: 11.3, z: 0}
-  m_LocalScale: {x: 50, y: 40, z: 1}
+  m_LocalScale: {x: 35, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!331 &1362900997
 SpriteMask:
@@ -3869,7 +3869,7 @@ SpriteMask:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b20950bf88947fe4080c618d7f661049, type: 3}
-  m_MaskAlphaCutoff: 0.383
+  m_MaskAlphaCutoff: 1
   m_FrontSortingLayerID: -2129203847
   m_BackSortingLayerID: 0
   m_FrontSortingLayer: 2
@@ -4605,6 +4605,10 @@ MonoBehaviour:
   unitName: 
   level: 0
   workplace: {fileID: 0}
+  exp:
+    peasant: 0
+    worker: 0
+    soldier: 0
 --- !u!1 &1585027085
 GameObject:
   m_ObjectHideFlags: 0
@@ -5010,6 +5014,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1772430396}
   - component: {fileID: 1772430395}
+  - component: {fileID: 1772430397}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -5047,6 +5052,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1772430397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772430394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4777cc249e9ffc4e871cf8360692a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileSpritePrefab: {fileID: 197094635016868795, guid: ae728874fc3f8a847af0e90af2ab8e36,
+    type: 3}
+  hoverColor: {r: 0.754717, g: 0.7249772, b: 0.6016376, a: 0.23921569}
+  activeColor: {r: 0.67058825, g: 0.19941403, b: 0.15686275, a: 0.63529414}
+  currentTileCoordinates: {x: 0, y: 0}
 --- !u!1 &1780813035
 GameObject:
   m_ObjectHideFlags: 0
@@ -5758,52 +5780,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2030947247
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2030947249}
-  - component: {fileID: 2030947248}
-  m_Layer: 0
-  m_Name: MouseScripts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &2030947248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030947247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4777cc249e9ffc4e871cf8360692a5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileSpritePrefab: {fileID: 3897704583237365551, guid: ad86597dbf99df941b23193f2c2d1643,
-    type: 3}
-  currentTileCoordinates: {x: 0, y: 0}
---- !u!4 &2030947249
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030947247}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.560848, y: 3.4203305, z: 92.166245}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2041557824
 GameObject:
   m_ObjectHideFlags: 0
