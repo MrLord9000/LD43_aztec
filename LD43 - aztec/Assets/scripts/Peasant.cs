@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Workshop : Building
+public class Peasant : UnitBase
 {
     // Start is called before the first frame update
     void Start()
@@ -13,8 +13,7 @@ public class Workshop : Building
     // Update is called once per frame
     void Update()
     {
-
+        
     }
-
-    public override Type BuildingType() { return Type.workshop; }
+    public override Building.Type SuitableBuildingType() { return Building.Type.farm; }
 }

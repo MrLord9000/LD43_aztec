@@ -31,19 +31,18 @@ public class TileSystem : MonoBehaviour
         Vector2 GridBaseCoordinates = CartesianToGridBase(CartesianCoordinates);
         return GridBaseToTile(GridBaseCoordinates);
     }
-
-    public static Vector2 OldGridBaseToCartesian(Vector2 GridBaseCoordinates)
+    public static Vector2 GridBaseTileCenter(Vector2 GridBaseCoordinates, int Width = 1, int Higth = 1)
     {
-        Vector2 CartesianCoordinates;
-        CartesianCoordinates.x = 63.0f * GridBaseCoordinates.x + 45.0f * GridBaseCoordinates.y;
-        CartesianCoordinates.y = 20.0f * GridBaseCoordinates.x - 31.0f * GridBaseCoordinates.y;
-        return CartesianCoordinates;
+        Vector2 Center = GridBaseToTile(GridBaseCoordinates);
+        Center.x += Width / 2;
+        Center.y += Higth / 2;
+        return Center;
     }
-    public static Vector2 OldCartesianToGridBase(Vector2 CartesianCoordinates)
+    public static Vector2 CartesianToTileCenter(Vector2 CartesianCoordinates, int Width = 1, int Higth = 1)
     {
-        Vector2 GridBaseCoordinates;
-        GridBaseCoordinates.x = (31.0f * CartesianCoordinates.x) / 2853.0f + (5.0f * CartesianCoordinates.y) / 317.0f;
-        GridBaseCoordinates.y = (20.0f * CartesianCoordinates.x) / 2853.0f - (7.0f * CartesianCoordinates.y) / 317.0f;
-        return GridBaseCoordinates;
+        Vector2 Center = CartesianToTile(CartesianCoordinates);
+        Center.x += Width / 2;
+        Center.y += Higth / 2;
+        return Center;
     }
 }

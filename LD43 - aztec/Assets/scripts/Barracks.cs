@@ -16,8 +16,5 @@ public class Barracks : Building
 
     }
 
-    public override Type BuildingType()
-    {
-        return Type.barracks;
-    }
+    public override Type BuildingType() { return Type.barracks; }
 }

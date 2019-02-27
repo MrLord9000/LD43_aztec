@@ -84,25 +84,31 @@ public class UnitBase : MonoBehaviour
     {
         while (true)
         {
-            Building.Type currentBT = workplace.GetComponent<Building>().BuildingType();
+            Building.Type currentBT = Building.Type.other;
 
-            if ( currentBT == SuitableBuildingType() )
+            try
             {
-                if( exp[currentBT] >= expRequiredToLevelUp)
-                {
-                    exp[currentBT] = 0;
-                    level++;
-                }
+                currentBT = workplace.GetComponent<Building>().BuildingType();
 
-                exp[currentBT]++;
-            }
-            else
-            {
-                if (exp[currentBT] < expRequiredToLevelUp)
+                if (currentBT == SuitableBuildingType())
                 {
+                    if (exp[currentBT] >= expRequiredToLevelUp)
+                    {
+                        exp[currentBT] = 0;
+                        level++;
+                    }
+
                     exp[currentBT]++;
                 }
+                else
+                {
+                    if (exp[currentBT] < expRequiredToLevelUp)
+                    {
+                        exp[currentBT]++;
+                    }
+                }
             }
+            catch(UnassignedReferenceException){}
 
             yield return new WaitForSeconds(1f);
         }
