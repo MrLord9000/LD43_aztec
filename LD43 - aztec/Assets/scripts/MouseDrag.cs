@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseDrag : MonoBehaviour {
 
-    float speed = 15f;
+    public float speed = 15f;
     public float boundsX, boundsY;
 
     private void Update()
@@ -18,18 +18,11 @@ public class MouseDrag : MonoBehaviour {
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            if(Camera.main.orthographicSize > 2)
-            {
-                Camera.main.orthographicSize -= 2;
-            }
-            
+            Camera.main.orthographicSize = 270;
         }
         else if(Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
-            if (Camera.main.orthographicSize < 8)
-            {
-                Camera.main.orthographicSize += 2;
-            }
+            Camera.main.orthographicSize = 2 * 270;
         }
 
     }
