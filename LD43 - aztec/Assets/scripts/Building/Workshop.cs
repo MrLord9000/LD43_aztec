@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Workshop : Building
+public class Workshop : BuildingBase
 {
     // Start is called before the first frame update
     void Start()

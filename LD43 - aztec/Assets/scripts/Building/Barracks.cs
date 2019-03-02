@@ -2,16 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Building : MonoBehaviour
+public class Barracks : BuildingBase
 {
-    public enum Type
-    {
-        farm,
-        barracks,
-        workshop,
-        other,
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +13,8 @@ public abstract class Building : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public abstract Type BuildingType();
-
+    public override Type BuildingType() { return Type.barracks; }
 }
