@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 [System.Serializable]
@@ -20,6 +21,21 @@ public class GridContainer
 {
     [SerializeField]
     private List<Pair> pairs;
+
+    public void RemoveEntry(Vector2 tilePos)
+    {
+        //Debug.Log("Pairs length: " + pairs.Count);
+        for (int i = 0; i < pairs.Count; i++)
+        {
+            if(pairs[i].position == tilePos)
+            {
+                Debug.Log("Removing entry nr " + i);
+                pairs.RemoveAt(i);
+                return;
+            }
+        }
+        throw new ElementNotFound("Tile " + tilePos);
+    }
 
     public GameObject this[Vector2 position]
     {
@@ -55,4 +71,24 @@ public class GridContainer
 public class GridData : ScriptableObject
 {
     public GridContainer gridBuildings;
+}
+
+[Serializable]
+internal class ElementNotFound : Exception
+{
+    public ElementNotFound()
+    {
+    }
+
+    public ElementNotFound(string message) : base(message)
+    {
+    }
+
+    public ElementNotFound(string message, Exception innerException) : base(message, innerException)
+    {
+    }
+
+    protected ElementNotFound(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+    }
 }

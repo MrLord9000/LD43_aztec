@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class MouseDrag : MonoBehaviour {
 
-    public float speed = 15f;
-    public float boundsX, boundsY;
+    public float baseSpeed = 100f;
+    private float speed;
+    [Tooltip("Should be a half of max screen height in pixels.")]
+    public int maxSize = 540;
+
+    private void Awake()
+    {
+        speed = baseSpeed;
+    }
 
     private void Update()
     {
@@ -18,10 +25,12 @@ public class MouseDrag : MonoBehaviour {
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
+            speed = baseSpeed;
             Camera.main.orthographicSize = 270;
         }
         else if(Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
+            speed = baseSpeed * 2f;
             Camera.main.orthographicSize = 2 * 270;
         }
 
