@@ -52,7 +52,16 @@ public class TileSystem : MonoBehaviour
         Vector2 Center = GridBaseToTile(GridBaseCoordinates);
         Center.x += Width / 2;
         Center.y += Heigth / 2;
-        return Center;
+        return GridBaseToCartesian(Center);
+    }
+    public static Vector2 GridBaseTileCenter(Vector2 GridBaseCoordinates, Vector2 Offset)
+    /* Overload - Width & Heigth as Vector2
+     */
+    {
+        Vector2 Center = GridBaseToTile(GridBaseCoordinates);
+        Center.x += Offset.x / 2;
+        Center.y += Offset.y / 2;
+        return GridBaseToCartesian(Center);
     }
     public static Vector2 CartesianToTileCenter(Vector2 CartesianCoordinates, int Width = 1, int Heigth = 1)
     /* Return cartesian coordinates of centre of tiles set (input in Cartesian Base)
@@ -61,6 +70,15 @@ public class TileSystem : MonoBehaviour
         Vector2 Center = CartesianToTile(CartesianCoordinates);
         Center.x += Width / 2;
         Center.y += Heigth / 2;
-        return Center;
+        return GridBaseToCartesian(Center);
+    }
+    public static Vector2 CartesianToTileCenter(Vector2 CartesianCoordinates, Vector2 Offset)
+    /* Overload - Width & Heigth as Vector2
+     */
+    {
+        Vector2 Center = CartesianToTile(CartesianCoordinates);
+        Center.x += Offset.x / 2;
+        Center.y += Offset.y / 2;
+        return GridBaseToCartesian(Center);
     }
 }

@@ -2,9 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//--[ ---------------------------------------------------------------------
+
+
+
+//--[ Main Class ]---------------------------------------------------------
 
 public class UnitBase : MonoBehaviour
 {
+    //--[ Fields ]--------------------------------------------------------- 
+
+    [SerializeField]
+    private GridData gridData;
+
     private int expRequiredToLevelUp = 100;
 
     [SerializeField]
@@ -24,13 +34,20 @@ public class UnitBase : MonoBehaviour
         StartCoroutine(ExpCoroutine());
     }
 
+    //--[ Inline virtual methods ]-----------------------------------------
 
     public virtual BuildingBase.Type SuitableBuildingType() { return BuildingBase.Type.other; }
+    public virtual void LvlUp() { level++; }
+    
+
+    //--[ Long virtual methods]--------------------------------------------
 
     public virtual float Production()
     {
         return 1f;
     }
+
+    //--[ Long non-virtual methods ]---------------------------------------
 
     private IEnumerator ExpCoroutine()
     {
@@ -60,13 +77,16 @@ public class UnitBase : MonoBehaviour
                     }
                 }
             }
-            catch(UnassignedReferenceException){}
+            catch (UnassignedReferenceException) { }
+            catch (System.NullReferenceException) { }
 
             yield return new WaitForSeconds(1f);
         }
     }
 
 }
+
+//--[ Support Classes ]----------------------------------------------------
 
 public enum Sex
 {

@@ -17,4 +17,8 @@ public class Barracks : BuildingBase
     }
 
     public override Type BuildingType() { return Type.barracks; }
+    public override IEnumerator ProductionCoroutine()
+    {
+        throw new System.NotImplementedException();
+    }
 }

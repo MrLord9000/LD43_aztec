@@ -4,28 +4,24 @@ using UnityEngine;
 
 public class Peasant : UnitBase
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //--[ Fields ]--------------------------------------------------------- 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    private float productionMultiplier = 0.1f;
+
+    //--[ Changed virtual methods ]----------------------------------------
+
     public override BuildingBase.Type SuitableBuildingType() { return BuildingBase.Type.farm; }
 
     public virtual new float Production()
     {
         if( workplace.GetComponent<BuildingBase>().BuildingType() == SuitableBuildingType())
         {
-            return 1f + (level * 0.1f);
+            return 1f + (level * productionMultiplier);
         }
         else
         {
-            return 1f;
+            return base.Production();
         }
     }
 }

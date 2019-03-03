@@ -3,6 +3,23 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using UnityEngine;
 
+//--[Main Class]-------------------------------------------------------------
+
+
+[CreateAssetMenu(fileName = "GridData", menuName = "ScriptableObjects/GridData", order = 1)]
+public class GridData : ScriptableObject
+{
+    public float globalFoodAmount = 0;
+    public float globalFoodIncomeMultiplier = 1;
+
+
+
+    public GridContainer gridBuildings;
+}
+
+
+//--[Additional Classes]------------------------------------------------------
+
 [System.Serializable]
 public class Pair
 {
@@ -20,7 +37,7 @@ public class Pair
 public class GridContainer
 {
     [SerializeField]
-    private List<Pair> pairs;
+    public List<Pair> pairs;
 
     public void RemoveEntry(Vector2 tilePos)
     {
@@ -65,12 +82,6 @@ public class GridContainer
 
         }
     }
-}
-
-[CreateAssetMenu(fileName = "GridData", menuName = "ScriptableObjects/GridData", order = 1)]
-public class GridData : ScriptableObject
-{
-    public GridContainer gridBuildings;
 }
 
 [Serializable]

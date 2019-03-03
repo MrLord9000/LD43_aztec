@@ -17,4 +17,8 @@ public class Workshop : BuildingBase
     }
 
     public override Type BuildingType() { return Type.workshop; }
+    public override IEnumerator ProductionCoroutine()
+    {
+        throw new System.NotImplementedException();
+    }
 }

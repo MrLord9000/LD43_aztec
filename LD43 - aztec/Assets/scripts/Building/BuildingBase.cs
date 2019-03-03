@@ -12,18 +12,24 @@ public abstract class BuildingBase : MonoBehaviour
         other,
     }
 
-    // Start is called before the first frame update
+    [SerializeField]
+    public GameObject[] workers = new GameObject[3];
+
+
+    [SerializeField]
+    protected GridData gridData;
+
     void Start()
     {
-        
+        StartCoroutine(ProductionCoroutine());
+
+
+
+        MyStart();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    protected virtual void MyStart() { }
     public abstract Type BuildingType();
+    public abstract IEnumerator ProductionCoroutine();
 
 }
