@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Globals;
 
 //--[ ---------------------------------------------------------------------
 
@@ -11,11 +12,7 @@ using UnityEngine;
 public class UnitBase : MonoBehaviour
 {
     //--[ Fields ]--------------------------------------------------------- 
-
-    [SerializeField]
-    private GridData gridData;
-
-    private int expRequiredToLevelUp = 100;
+    
 
     [SerializeField]
     private string unitName;  // name jest dziedziczone z MonoBehaviour
@@ -27,18 +24,24 @@ public class UnitBase : MonoBehaviour
     public GameObject workplace;
 
     [SerializeField]
-    Exp exp;
+    Exp exp = new Exp();
+
+    //--[ Unity Functions ]------------------------------------------------
 
     void Start()
     {
+        GameManager.units.Add(this.gameObject);
         StartCoroutine(ExpCoroutine());
     }
 
     //--[ Inline virtual methods ]-----------------------------------------
 
-    public virtual BuildingBase.Type SuitableBuildingType() { return BuildingBase.Type.other; }
+    public virtual BuildingBase.Type SuitableBuildingType { get => BuildingBase.Type.other; }
     public virtual void LvlUp() { level++; }
-    
+
+    //--[ Inline non-virtual methods ]-------------------------------------
+
+    public BuildingBase.Type CurrentWorkplaceType { get => workplace.GetComponent<BuildingBase>().BuildingType(); }// <- w przyszłości poprawić
 
     //--[ Long virtual methods]--------------------------------------------
 
@@ -53,27 +56,25 @@ public class UnitBase : MonoBehaviour
     {
         while (true)
         {
-            BuildingBase.Type currentBT = BuildingBase.Type.other;
-
             try
             {
-                currentBT = workplace.GetComponent<BuildingBase>().BuildingType();
+                
 
-                if (currentBT == SuitableBuildingType())
+                if (CurrentWorkplaceType == SuitableBuildingType)
                 {
-                    if (exp[currentBT] >= expRequiredToLevelUp)
+                    if (exp[CurrentWorkplaceType] >= GameManager.expRequiredToLevelUp)
                     {
-                        exp[currentBT] = 0;
+                        exp[CurrentWorkplaceType] = 0;
                         level++;
                     }
 
-                    exp[currentBT]++;
+                    exp[CurrentWorkplaceType]++;
                 }
                 else
                 {
-                    if (exp[currentBT] < expRequiredToLevelUp)
+                    if (exp[CurrentWorkplaceType] < GameManager.expRequiredToLevelUp)
                     {
-                        exp[currentBT]++;
+                        exp[CurrentWorkplaceType]++;
                     }
                 }
             }

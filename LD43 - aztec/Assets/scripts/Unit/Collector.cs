@@ -3,25 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Globals;
 
-public class Peasant : UnitBase
+public class Collector : Peasant
 {
     //--[ Fields ]--------------------------------------------------------- 
 
 
     //--[ Changed virtual methods ]----------------------------------------
 
-    public override BuildingBase.Type SuitableBuildingType { get => BuildingBase.Type.farm; }
-
     public override float Production()
     {
-        Debug.Log("AAAAAAAAAAAAAA");
-        if( workplace.GetComponent<BuildingBase>().BuildingType() == SuitableBuildingType)
+        if (workplace.GetComponent<BuildingBase>().BuildingType() == SuitableBuildingType)
         {
-            return 1f + (level * GameManager.PeasantProductionBonus);
+            return 1f + (level * GameManager.CollectorProductionBonus);
         }
         else
         {
-            return base.Production();
+            return (this as UnitBase).Production();
         }
     }
 }

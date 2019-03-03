@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262ca05308ef69a428e964a9741ddd3e, type: 3}
   m_Name: GridDataMain
   m_EditorClassIdentifier: 
+  globalFoodAmount: 4.5
+  globalFoodIncomeMultiplier: 1
   gridBuildings:
-    pairs:
-    - position: {x: 0, y: 0}
-      gameObject: {fileID: 0}
-    - position: {x: 0, y: 0}
-      gameObject: {fileID: 0}
-    - position: {x: 0, y: 0}
-      gameObject: {fileID: 0}
+    pairs: []

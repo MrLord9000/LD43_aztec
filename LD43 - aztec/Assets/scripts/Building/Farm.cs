@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Globals;
+
 
 public class Farm : BuildingBase
 {
@@ -21,15 +23,13 @@ public class Farm : BuildingBase
             {
                 try
                 {
-
                     actualFoodIncome += go.GetComponent<UnitBase>().Production();
                 }
                 catch (UnassignedReferenceException) { }
                 catch (System.NullReferenceException) { }
             }
 
-            Debug.Log(Time.frameCount.ToString() + ' ' + actualFoodIncome.ToString());
-            gridData.globalFoodAmount += actualFoodIncome * gridData.globalFoodIncomeMultiplier;
+            GameManager.gridData.globalFoodAmount += actualFoodIncome * GameManager.gridData.globalFoodIncomeMultiplier;
 
             yield return new WaitForSeconds(1f);
         }

@@ -16,9 +16,6 @@ public abstract class BuildingBase : MonoBehaviour
     public GameObject[] workers = new GameObject[3];
 
 
-    [SerializeField]
-    protected GridData gridData;
-
     void Start()
     {
         StartCoroutine(ProductionCoroutine());

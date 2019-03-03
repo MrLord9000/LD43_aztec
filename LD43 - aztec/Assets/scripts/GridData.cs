@@ -15,6 +15,15 @@ public class GridData : ScriptableObject
 
 
     public GridContainer gridBuildings;
+
+
+
+    public void Reset()
+    {
+        globalFoodAmount = 0;
+        globalFoodIncomeMultiplier = 1;
+        gridBuildings.pairs.Clear();
+    }
 }
 
 
